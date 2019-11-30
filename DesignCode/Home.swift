@@ -23,6 +23,8 @@ struct Home: View {
             .blur(radius: show ? 20 : 0)
             .scaleEffect(showProfile ? 0.95 : 1)
             .animation(.default)
+            .background(Color.yellow)
+            
 
          ContentView()
             .frame(minWidth: 0, maxWidth: 712)
