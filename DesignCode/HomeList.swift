@@ -14,7 +14,7 @@ struct HomeList: View {
     @State var showContent = false
     
     var body: some View {
-        VStack(spacing: 30.0) {
+        VStack() {
             ForEach(time) { item in
                 Button(action: { self.showContent.toggle() }) {
                     GeometryReader { geometry in
@@ -31,6 +31,7 @@ struct HomeList: View {
 struct HomeList_Previews: PreviewProvider {
     static var previews: some View {
         HomeList()
+
     }
 }
 #endif
@@ -42,7 +43,7 @@ struct TimeView: View {
     var shadowColor = Color("backgroundShadow3")
     
     var body: some View {
-        return VStack(alignment: .leading) {
+        return VStack() {
             Text(title)
                 .font(Font.custom("Canterbury", size: 200))
                 .fontWeight(.heavy)
@@ -50,6 +51,7 @@ struct TimeView: View {
                 .foregroundColor(Color.green)
                 .multilineTextAlignment(.center)
                 .padding()
+
                 
             Spacer()
             
