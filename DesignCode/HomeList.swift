@@ -44,10 +44,10 @@ struct TimeView: View {
     var body: some View {
         return VStack(alignment: .leading) {
             Text(title)
-                .font(Font.custom("black", size: 200))
+                .font(Font.custom("Canterbury", size: 200))
                 .fontWeight(.heavy)
                 
-                .foregroundColor(Color.pink)
+                .foregroundColor(Color.green)
                 .multilineTextAlignment(.center)
                 .padding()
                 
