@@ -44,19 +44,20 @@ struct TimeView: View {
     var body: some View {
         return VStack(alignment: .leading) {
             Text(title)
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-                .padding(100)
-                .lineLimit(4)
-                .fixedSize()
+                .font(Font.custom("black", size: 200))
+                .fontWeight(.heavy)
+                
+                .foregroundColor(Color.pink)
+                .multilineTextAlignment(.center)
+                .padding()
+                
             Spacer()
             
         }
         .background(Color.gray)
         .cornerRadius(30)
         .frame(width: 360, height: 360)
-        .shadow(color: Color.gray, radius: 20, x: 0, y: 20)
+        .shadow(color: Color.gray, radius: 10)
     }
 }
 
