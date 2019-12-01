@@ -22,8 +22,8 @@ struct Home: View {
     var body: some View {
         ZStack(alignment: .top) {
             Group {
-                 if false {
-               // if model.landscape {
+                 //if false {
+                if model.landscape {
                     Text("landscape")
                         .font(.largeTitle)
                         .fontWeight(.ultraLight)
