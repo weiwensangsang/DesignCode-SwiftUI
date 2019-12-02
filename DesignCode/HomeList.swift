@@ -1,39 +1,30 @@
 //
-//  HomeList.swift
-//  DesignCode
-//
-//  Created by Mithun x on 7/13/19.
-//  Copyright © 2019 Mithun. All rights reserved.
 //
 
 import SwiftUI
 
 struct HomeList: View {
     
-    var time = timeData
+    @EnvironmentObject var coreData : CoreData
     @State var showContent = false
     
     var body: some View {
         VStack() {
-            ForEach(time) { item in
-                Button(action: { self.getTime() }) {
-                    GeometryReader { geometry in
-                        TimeView(title: item.title)
-                    }
-                    .frame(width: 360, height: 360)
+            
+            Button(action: { }) {
+                GeometryReader { geometry in
+                    TimeView(title: self.coreData.hour <= 9 ? "0\(self.coreData.hour)" : "\(self.coreData.hour)")
                 }
+                .frame(width: 360, height: 360)
+            }
+            
+            Button(action: { }) {
+                GeometryReader { geometry in
+                    TimeView(title: self.coreData.minute <= 9 ? "0\(self.coreData.minute)" : "\(self.coreData.minute)")
+                }
+                .frame(width: 360, height: 360)
             }
         }
-    }
-    func getTime() {
-        let date = Date()
-        let calendar = Calendar.current
-        let dateComponents = calendar.dateComponents(in: TimeZone.current, from: date)
-        print("\(dateComponents.year!)-\(dateComponents.month!)-\(dateComponents.day!)")
-        let dateFormatter = DateFormatter() // 创建一个日期格式器
-        dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-        print("当前时间：\(dateFormatter.string(from: Date()))")
-
     }
 }
 
@@ -41,14 +32,14 @@ struct HomeList: View {
 struct HomeList_Previews: PreviewProvider {
     static var previews: some View {
         HomeList()
-
+            .environmentObject(CoreData())
     }
 }
 #endif
 
 struct TimeView: View {
     var totalClicked = 0
-
+    
     var title = "Build an app with SwiftUI"
     var image = "Illustration1"
     var shadowColor = Color("backgroundShadow3")
@@ -62,11 +53,8 @@ struct TimeView: View {
                 .foregroundColor(Color.green)
                 .multilineTextAlignment(.center)
                 .padding()
-             
-
-
             
-                
+            
             //Spacer()
             
         }
@@ -75,23 +63,7 @@ struct TimeView: View {
         .frame(width: 360, height: 360)
         .shadow(color: Color.gray, radius: 10)
     }
-    
-    func getTime() {
-        let dateFormatter = DateFormatter() // 创建一个日期格式器
-        dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-        print("当前时间：\(dateFormatter.string(from: Date()))")
-
-    }
 }
 
-struct Time: Identifiable {
-    var id = UUID()
-    var title: String
-}
-
-let timeData = [
-    Time(title: "00"),
-    Time(title: "00"),
-]
 
 

@@ -34,6 +34,7 @@ struct Home: View {
                     HomeList()
                     .background(Color.red)
                     .padding(.top, 100)
+                    .environmentObject(CoreData())
                 }
             }
             
