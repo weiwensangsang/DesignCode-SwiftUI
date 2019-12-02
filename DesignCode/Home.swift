@@ -31,7 +31,7 @@ struct Home: View {
                     )
                         
                 } else {
-                    HomeList()
+                    TimeList()
                     .background(Color.red)
                     .padding(.top, 100)
                     .environmentObject(CoreData())

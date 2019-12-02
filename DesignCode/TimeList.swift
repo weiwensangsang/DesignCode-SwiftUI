@@ -3,7 +3,7 @@
 
 import SwiftUI
 
-struct HomeList: View {
+struct TimeList: View {
     
     @EnvironmentObject var coreData : CoreData
     @State var showContent = false
@@ -31,7 +31,7 @@ struct HomeList: View {
 #if DEBUG
 struct HomeList_Previews: PreviewProvider {
     static var previews: some View {
-        HomeList()
+        TimeList()
             .environmentObject(CoreData())
     }
 }
