@@ -14,6 +14,8 @@ class CoreData: ObservableObject {
     @Published var currentDate: String
     @Published var weekday: Int
     @Published var color: Color
+    @Published var b: Bool
+
     var timer = Timer()
     
     
@@ -21,7 +23,7 @@ class CoreData: ObservableObject {
         let calendar = Calendar.current
         let dateComponents = calendar.dateComponents(in: TimeZone.current, from: Date())
         let dateFormatter = DateFormatter() // 创建一个日期格式器
-        
+        b = true
         color = Color.white
         hour = dateComponents.hour!
         minute = dateComponents.minute!
