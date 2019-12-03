@@ -10,17 +10,18 @@ struct TimeList: View {
     
     var body: some View {
         VStack() {
-            
-            Button(action: { }) {
+             
+            Button(action: { self.coreData.play()}) {
                 GeometryReader { geometry in
-                    TimeView(title: self.coreData.hour <= 9 ? "0\(self.coreData.hour)" : "\(self.coreData.hour)")
+                    TimeView(title : self.coreData.hour)
+                    
                 }
                 .frame(width: 360, height: 360)
             }
             
-            Button(action: { }) {
+            Button(action: { self.coreData.colorChange()}) {
                 GeometryReader { geometry in
-                    TimeView(title: self.coreData.minute <= 9 ? "0\(self.coreData.minute)" : "\(self.coreData.minute)")
+                    TimeView(title : self.coreData.minute)
                 }
                 .frame(width: 360, height: 360)
             }
@@ -38,25 +39,23 @@ struct HomeList_Previews: PreviewProvider {
 #endif
 
 struct TimeView: View {
-    var totalClicked = 0
-    
-    var title = "Build an app with SwiftUI"
+
+    var title = 0
     var image = "Illustration1"
     var shadowColor = Color("backgroundShadow3")
     
+    
     var body: some View {
         return VStack() {
-            Text(title)
+            Text(title <= 9 ? "0\(title)" : "\(title)")
                 .font(Font.custom("Canterbury", size: 250))
                 .fontWeight(.heavy)
                 
                 .foregroundColor(Color.green)
                 .multilineTextAlignment(.center)
                 .padding()
-            
-            
-            //Spacer()
-            
+                .transition(.slide)
+                .animation(.linear(duration: 1))
         }
         .background(Color.gray)
         .cornerRadius(30)

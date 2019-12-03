@@ -13,6 +13,7 @@ class CoreData: ObservableObject {
     @Published var minute: Int
     @Published var currentDate: String
     @Published var weekday: Int
+    @Published var color: Color
     var timer = Timer()
     
     
@@ -21,6 +22,7 @@ class CoreData: ObservableObject {
         let dateComponents = calendar.dateComponents(in: TimeZone.current, from: Date())
         let dateFormatter = DateFormatter() // 创建一个日期格式器
         
+        color = Color.white
         hour = dateComponents.hour!
         minute = dateComponents.minute!
         weekday = dateComponents.weekday!
@@ -29,9 +31,19 @@ class CoreData: ObservableObject {
         print("当前时间：\(dateFormatter.string(from: Date()))")
         timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true, block: { _ in
             print("\(self.hour)")
-            self.hour += 2
+            withAnimation(.easeInOut(duration: 4)) {
+                self.hour += 2
+            }
         })
         
+    }
+    
+    func play() {
+        self.minute += 2
+    }
+    
+    func colorChange() {
+        self.color = Color.gray
     }
     
     
