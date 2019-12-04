@@ -10,18 +10,21 @@ struct TimeList: View {
     
     var body: some View {
         VStack() {
-             
-            Button(action: { self.coreData.play()}) {
-                GeometryReader { geometry in
-                    TimeView(title : self.coreData.hour)
-                    
-                }
-                .frame(width: 360, height: 360)
+            
+            Button(action: {
+                }) {
+                    GeometryReader { geometry in
+                        TimeView(title : self.coreData.hour)
+                        
+                    }
+                    .frame(width: 360, height: 360)
             }
             
             Button(action: {
                 withAnimation(.easeInOut(duration: 1.0)) {
-                    self.coreData.b.toggle()}
+                    self.coreData.isOn.toggle()
+                }
+                
                 
             }) {
                 GeometryReader { geometry in
@@ -43,7 +46,7 @@ struct HomeList_Previews: PreviewProvider {
 #endif
 
 struct TimeView: View {
-
+    
     @EnvironmentObject var coreData : CoreData
     var title = 0
     var image = "Illustration1"
@@ -53,14 +56,13 @@ struct TimeView: View {
     
     var body: some View {
         return VStack() {
-            AnimatableColorText(from: UIColor.systemRed, to: UIColor.systemGreen, pct: self.coreData.b ? 1 : 0) {
-
+            AnimatableColorText(from: UIColor.systemGray, to: UIColor.systemGray6, pct: self.coreData.isOn ? 1 : 0) {
                 Text(self.title <= 9 ? "0\(self.title)" : "\(self.title)")
-                .font(Font.custom("Canterbury", size: 250))
-                .fontWeight(.heavy)
+                    .font(Font.custom("Canterbury", size: 250))
+                    .fontWeight(.heavy)
                 
-                }.multilineTextAlignment(.center).padding()
-
+            }.multilineTextAlignment(.center).padding()
+            
         }
         .background(Color.gray)
         .cornerRadius(30)

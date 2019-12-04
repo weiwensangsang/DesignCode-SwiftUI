@@ -13,30 +13,57 @@ class CoreData: ObservableObject {
     @Published var minute: Int
     @Published var currentDate: String
     @Published var weekday: Int
-    @Published var color: Color
-    @Published var b: Bool
+    @Published var isOn: Bool
 
     var timer = Timer()
+    var cTimer = Timer()
+
     
     
     init() {
-        let calendar = Calendar.current
-        let dateComponents = calendar.dateComponents(in: TimeZone.current, from: Date())
-        let dateFormatter = DateFormatter() // 创建一个日期格式器
-        b = true
-        color = Color.white
+        func getDateComponents() -> DateComponents {
+            let calendar = Calendar.current
+            return calendar.dateComponents(in: TimeZone.current, from: Date())
+        }
+        
+        func getCurrentDate() -> String {
+            let dateFormatter = DateFormatter() // 创建一个日期格式器
+            dateFormatter.dateFormat = "yyyy年MM月dd日"
+            return dateFormatter.string(from: Date())
+        }
+        
+        isOn = true
+        let dateComponents = getDateComponents()
         hour = dateComponents.hour!
         minute = dateComponents.minute!
         weekday = dateComponents.weekday!
-        dateFormatter.dateFormat = "yyyy年MM月dd日"
-        currentDate = dateFormatter.string(from: Date())
-        print("当前时间：\(dateFormatter.string(from: Date()))")
+        currentDate = getCurrentDate()
+        var count = 1;
+        
         timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true, block: { _ in
-            print("\(self.hour)")
-            withAnimation(.easeInOut(duration: 4)) {
-                self.hour += 2
+            
+            let current = getDateComponents()
+            if (self.minute == current.minute!) {
+                withAnimation(.easeInOut(duration: 2)) {
+                    self.isOn.toggle()
+                }
+                self.minute = current.minute!
+                count+=1
+                print("\(count)")
+                
+                self.cTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
+                    withAnimation(.easeInOut(duration: 2)) {
+                        self.isOn.toggle()
+                    }
+                    self.cTimer.invalidate()
+                }
+                
+                
             }
+            
         })
+        
+        
         
     }
     
@@ -44,9 +71,7 @@ class CoreData: ObservableObject {
         self.minute += 2
     }
     
-    func colorChange() {
-        self.color = Color.gray
-    }
+
     
     
 }
