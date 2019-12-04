@@ -38,20 +38,17 @@ class CoreData: ObservableObject {
         minute = dateComponents.minute!
         weekday = dateComponents.weekday!
         currentDate = getCurrentDate()
-        var count = 1;
         
         timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true, block: { _ in
             
             let current = getDateComponents()
-            if (self.minute == current.minute!) {
+            //if (self.minute == current.minute!) {
                 withAnimation(.easeInOut(duration: 2)) {
                     self.isOn.toggle()
                 }
-                self.minute = current.minute!
-                count+=1
-                print("\(count)")
                 
                 self.cTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
+                    self.minute += 1
                     withAnimation(.easeInOut(duration: 2)) {
                         self.isOn.toggle()
                     }
@@ -59,7 +56,7 @@ class CoreData: ObservableObject {
                 }
                 
                 
-            }
+            //}
             
         })
         
