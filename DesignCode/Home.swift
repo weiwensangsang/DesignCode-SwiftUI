@@ -13,7 +13,6 @@ let statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.heig
 let screen = UIScreen.main.bounds
 
 struct Home: View {
-    @EnvironmentObject var model: Model
     
     
     @State var show = false
@@ -21,22 +20,13 @@ struct Home: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            Group {
-                 //if false {
-                if model.landscape {
-                    Text("landscape")
-                        .font(.largeTitle)
-                        .fontWeight(.ultraLight)
-                        .foregroundColor(Color.white
-                    )
-                        
-                } else {
                     TimeList()
-                    .background(Color.red)
-                    .padding(.top, 100)
-                    .environmentObject(CoreData())
-                }
-            }
+                        .background(Color.black)
+                        .padding(.top, 100)
+                        .environmentObject(CoreData())
+                        
+            
+            
             
             HStack {
                 MenuButton(show: $show)
@@ -48,7 +38,7 @@ struct Home: View {
             
             MenuView(show: $show)
         }
-        .background(Color.blue)
+        .background(Color.black)
         .edgesIgnoringSafeArea(.all)
     }
 }
@@ -58,7 +48,7 @@ struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
             .previewDevice("iPhone 11")
-           // .previewLayout(.fixed(width: 568, height: 320)) // iPhone SE landscape size
+            //.previewLayout(.fixed(width: 568, height: 320)) // iPhone SE landscape size
     }
 }
 #endif
