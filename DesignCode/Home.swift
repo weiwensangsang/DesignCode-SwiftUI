@@ -13,33 +13,41 @@ let statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.heig
 let screen = UIScreen.main.bounds
 
 struct Home: View {
+    @EnvironmentObject var model: Model
     
-    
+    @State var showMenuButton = true
     @State var show = false
     @State var showProfile = false
     
     var body: some View {
-        ZStack(alignment: .top) {
-                    TimeList()
-                        .background(Color.black)
-                        .padding(.top, 100)
-                        .environmentObject(CoreData())
-                        
-            
-            
-            
-            HStack {
-                MenuButton(show: $show)
-                    .offset(x: -40)
-                Spacer()
+       
+            ZStack(alignment: .top) {
+                 //Button(action: { self.showMenuButton.toggle() }) {
+                TimeList()
+                    .background(Color.black)
+                    .padding(.top, 100)
+                    .environmentObject(CoreData())
+                .onTapGesture {
+                    self.showMenuButton.toggle()
+                }
+                // }.foregroundColor(.primary) .buttonStyle(PlainButtonStyle())
+                
+                
+                HStack {
+                    MenuButton(show: $show)
+                        .offset(x: -40)
+                        .opacity(self.showMenuButton ? 1 : 0)
+                    Spacer()
+                }
+                .offset(y: showProfile ? statusBarHeight : 80)
+                .animation(.spring())
+                
+                MenuView(show: $show)
             }
-            .offset(y: showProfile ? statusBarHeight : 80)
-            .animation(.spring())
+            .background(Color.black)
+            .edgesIgnoringSafeArea(.all)
             
-            MenuView(show: $show)
-        }
-        .background(Color.black)
-        .edgesIgnoringSafeArea(.all)
+       
     }
 }
 
@@ -48,7 +56,8 @@ struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
             .previewDevice("iPhone 11")
-            //.previewLayout(.fixed(width: 568, height: 320)) // iPhone SE landscape size
+            .environmentObject(Model(isLandscape: false))
+        //.previewLayout(.fixed(width: 568, height: 320)) // iPhone SE landscape size
     }
 }
 #endif
@@ -128,21 +137,6 @@ struct MenuView: View {
     }
 }
 
-struct CircleButton: View {
-    
-    var icon = "person.crop.circle"
-    
-    var body: some View {
-        return HStack {
-            Image(systemName: icon)
-                .foregroundColor(.primary)
-        }
-        .frame(width: 44, height: 44)
-        .background(Color("button"))
-        .cornerRadius(30)
-        .shadow(color: Color("buttonShadow"), radius: 20, x: 0, y: 20)
-    }
-}
 
 struct MenuButton: View {
     @Binding var show: Bool
@@ -167,23 +161,3 @@ struct MenuButton: View {
     }
 }
 
-struct MenuRight: View {
-    
-    @Binding var show: Bool
-    @State var showUpdate = false
-    
-    var body: some View {
-        return ZStack(alignment: .topTrailing) {
-            HStack {
-                Button(action: { self.show.toggle() }) {
-                    CircleButton(icon: "person.crop.circle")
-                }
-                Button(action: { self.showUpdate.toggle() }) {
-                    CircleButton(icon: "bell")
-                        .sheet(isPresented: self.$showUpdate) { UpdateList() }
-                }
-            }
-            Spacer()
-        }
-    }
-}
