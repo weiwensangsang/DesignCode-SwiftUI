@@ -21,21 +21,21 @@ struct TimeList: View {
                         .fontWeight(.bold)
                         .frame(width: 360, height:40, alignment: .bottomTrailing)
                     
-                    Text("周\(self.coreData.weekday)")
+                    Text("周" + self.coreData.weekday)
                         .font(Font.custom("Canterbury", size: 28))
                         .foregroundColor(Color.purple)
                         .fontWeight(.heavy)
                         .frame(width: 360, height:40, alignment: .bottomTrailing)
                     
                     GeometryReader { geometry in
-                        TimeView(title : self.coreData.hour)
+                        TimeView(time : self.coreData.hour, type: "hour")
                     }
                     .frame(width: 360, height: 360)
                     
                     
                     
                     GeometryReader { geometry in
-                        TimeView(title : self.coreData.minute)
+                        TimeView(time : self.coreData.minute, type: "minute")
                     }
                     .frame(width: 360, height: 360)
                     
@@ -45,11 +45,11 @@ struct TimeList: View {
             } else {
                 VStack() {
                     HStack() {
-                        Text("周六")
+                        Text("周" + self.coreData.weekday)
                             .font(Font.custom("Canterbury", size: 28))
                             .foregroundColor(Color.purple)
                             .fontWeight(.heavy)
-                           
+                        
                         Spacer()
                         Text(self.coreData.currentDate)
                             .font(Font.custom("Canterbury", size: 30))
@@ -58,14 +58,14 @@ struct TimeList: View {
                     }.frame(width: 600)
                     HStack() {
                         GeometryReader { geometry in
-                            TimeView(title : self.coreData.hour)
+                            TimeView(time : self.coreData.hour, type: "hour")
                         }
                         .frame(width: 360, height: 360)
                         
                         
                         
                         GeometryReader { geometry in
-                            TimeView(title : self.coreData.minute)
+                            TimeView(time : self.coreData.minute, type: "minute")
                         }
                         .frame(width: 360, height: 360)
                     }
@@ -83,9 +83,9 @@ struct HomeList_Previews: PreviewProvider {
     static var previews: some View {
         TimeList()
             .environmentObject(CoreData())
-            .environmentObject(Model(isLandscape: true))
-        .previewLayout(.fixed(width: 800, height: 500)) // iPhone SE landscape size
-
+            .environmentObject(Model(isLandscape: false))
+        // .previewLayout(.fixed(width: 800, height: 500)) // iPhone SE landscape size
+        
         
     }
 }
@@ -94,7 +94,8 @@ struct HomeList_Previews: PreviewProvider {
 struct TimeView: View {
     
     @EnvironmentObject var coreData : CoreData
-    var title = 0
+    var time = 0
+    var type = ""
     var image = "Illustration1"
     var shadowColor = Color("backgroundShadow3")
     var flag = true
@@ -102,11 +103,13 @@ struct TimeView: View {
     
     var body: some View {
         return VStack() {
-            AnimatableColorText(from: UIColor.systemGray, to: UIColor.systemGray6, pct: self.coreData.isOn ? 1 : 0) {
-                Text(self.title <= 9 ? "0\(self.title)" : "\(self.title)")
-                    .font(Font.custom("Canterbury", size: 250))
-                    .fontWeight(.heavy)
-                
+            AnimatableColorText(from: UIColor.systemGray, to: UIColor.systemGray6, pct: (
+                self.type == "hour" ? self.coreData.isHourChange :
+                    self.coreData.isMinuteChange) ? 1 : 0) {
+                        Text(self.time <= 9 ? "0\(self.time)" : "\(self.time)")
+                            .font(Font.custom("Canterbury", size: 250))
+                            .fontWeight(.heavy)
+                        
             }
             .multilineTextAlignment(.center)
             .padding()
