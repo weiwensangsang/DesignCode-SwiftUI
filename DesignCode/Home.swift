@@ -20,34 +20,32 @@ struct Home: View {
     @State var showProfile = false
     
     var body: some View {
-       
-            ZStack(alignment: .top) {
-                 //Button(action: { self.showMenuButton.toggle() }) {
-                TimeList()
-                    .background(Color.black)
-                    .padding(.top, 100)
-                    .environmentObject(CoreData())
+        
+        ZStack(alignment: .top) {
+            TimeList()
+                .background(Color.black)
+               // .padding(.top, 100)
+                .environmentObject(CoreData())
                 .onTapGesture {
                     self.showMenuButton.toggle()
-                }
-                // }.foregroundColor(.primary) .buttonStyle(PlainButtonStyle())
-                
-                
-                HStack {
-                    MenuButton(show: $show)
-                        .offset(x: -40)
-                        .opacity(self.showMenuButton ? 1 : 0)
-                    Spacer()
-                }
-                .offset(y: showProfile ? statusBarHeight : 80)
-                .animation(.spring())
-                
-                MenuView(show: $show)
             }
-            .background(Color.black)
-            .edgesIgnoringSafeArea(.all)
             
-       
+            
+            HStack {
+                MenuButton(show: $show)
+                    .offset(x: -40)
+                    .opacity(self.showMenuButton ? 1 : 0)
+                Spacer()
+            }
+            .offset(y: showProfile ? statusBarHeight : 110)
+            .animation(.spring())
+            
+            MenuView(show: $show)
+        }
+        .background(Color.black)
+        .edgesIgnoringSafeArea(.all)
+        
+        
     }
 }
 

@@ -67,6 +67,10 @@ class MyUIHostingController<Content> : UIHostingController<Content> where Conten
         NotificationCenter.default.post(name: .my_onViewWillTransition, object: nil, userInfo: ["size": size])
         super.viewWillTransition(to: size, with: coordinator)
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
 }
 
