@@ -88,11 +88,11 @@ struct Menu: Identifiable {
 }
 
 let menuData = [
-    Menu(title: "My Account", icon: "person.crop.circle"),
-    Menu(title: "Settings", icon: "gear"),
-    Menu(title: "Billing", icon: "creditcard"),
-    Menu(title: "Team", icon: "person.2"),
-    Menu(title: "Sign out", icon: "arrow.uturn.down")
+    Menu(title: "字体", icon: "gear"),
+    Menu(title: "亮度", icon: "creditcard"),
+    Menu(title: "颜色", icon: "person.2"),
+    Menu(title: "方向", icon: "gear"),
+    Menu(title: "给个好评吧，求求你了", icon: "arrow.uturn.down")
 ]
 
 struct MenuView: View {
@@ -141,7 +141,7 @@ struct MenuButton: View {
     
     var body: some View {
         return ZStack(alignment: .topLeading) {
-            Button(action: { self.show.toggle() }) {
+            Button(action: { self.show.toggle()  }) {
                 HStack {
                     Spacer()
                     
