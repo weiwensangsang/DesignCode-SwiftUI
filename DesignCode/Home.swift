@@ -28,7 +28,7 @@ struct Home: View {
                 .environmentObject(CoreData())
                 .onTapGesture {
                     self.showMenuButton.toggle()
-            }
+            } .offset(y: self.model.landscape ? 40 : 80)
             
             
             HStack {
@@ -37,7 +37,7 @@ struct Home: View {
                     .opacity(self.showMenuButton ? 1 : 0)
                 Spacer()
             }
-            .offset(y: showProfile ? statusBarHeight : 110)
+            .offset(y: self.model.landscape ? 50 : 110)
             .animation(.spring())
             
             MenuView(show: $show)
@@ -55,7 +55,7 @@ struct Home_Previews: PreviewProvider {
         Home()
             .previewDevice("iPhone 11")
             .environmentObject(Model(isLandscape: false))
-        //.previewLayout(.fixed(width: 568, height: 320)) // iPhone SE landscape size
+            //.previewLayout(.fixed(width: 1000, height: 1000)) // iPhone SE landscape size
     }
 }
 #endif

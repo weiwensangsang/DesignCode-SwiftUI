@@ -25,19 +25,19 @@ struct TimeList: View {
                         .font(Font.custom("Canterbury", size: 28))
                         .foregroundColor(Color.purple)
                         .fontWeight(.heavy)
-                        .frame(width: 360, height:40, alignment: .bottomTrailing)
+                        .frame(width: 360, height:50, alignment: .bottomTrailing)
                     
                     GeometryReader { geometry in
                         TimeView(time : self.coreData.hour, type: "hour")
                     }
-                    .frame(width: 360, height: 360)
+                    .frame(width: 360, height: 300)
                     
                     
                     
                     GeometryReader { geometry in
                         TimeView(time : self.coreData.minute, type: "minute")
                     }
-                    .frame(width: 360, height: 360)
+                    .frame(width: 360, height: 300)
                     
                 }
                 
@@ -60,14 +60,14 @@ struct TimeList: View {
                         GeometryReader { geometry in
                             TimeView(time : self.coreData.hour, type: "hour")
                         }
-                        .frame(width: 360, height: 360)
+                        .frame(width: 360, height: 300)
                         
                         
                         
                         GeometryReader { geometry in
                             TimeView(time : self.coreData.minute, type: "minute")
                         }
-                        .frame(width: 360, height: 360)
+                        .frame(width: 360, height: 300)
                     }
                 }
                 
@@ -83,8 +83,8 @@ struct HomeList_Previews: PreviewProvider {
     static var previews: some View {
         TimeList()
             .environmentObject(CoreData())
-            .environmentObject(Model(isLandscape: false))
-        // .previewLayout(.fixed(width: 800, height: 500)) // iPhone SE landscape size
+            .environmentObject(Model(isLandscape: true))
+         .previewLayout(.fixed(width: 800, height: 500)) // iPhone SE landscape size
         
         
     }
