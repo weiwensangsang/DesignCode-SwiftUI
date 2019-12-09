@@ -64,12 +64,13 @@ struct MenuRow: View {
     
     var image = "creditcard"
     var text = "My Account"
-    
+    var color = Color.red
+
     var body: some View {
         return HStack {
             Image(systemName: image)
                 .imageScale(.large)
-                .foregroundColor(Color("icons"))
+                .foregroundColor(color)
                 .frame(width: 32, height: 32)
             
             Text(text)
@@ -85,14 +86,15 @@ struct Menu: Identifiable {
     var id = UUID()
     var title: String
     var icon: String
+    var color: Color
 }
 
 let menuData = [
-    Menu(title: "字体", icon: "gear"),
-    Menu(title: "亮度", icon: "creditcard"),
-    Menu(title: "颜色", icon: "person.2"),
-    Menu(title: "方向", icon: "gear"),
-    Menu(title: "给个好评吧，求求你了", icon: "arrow.uturn.down")
+    Menu(title: "字体", icon: "a.square.fill", color: Color.black),
+    Menu(title: "亮度", icon: "bolt.fill", color: Color.yellow),
+    Menu(title: "颜色", icon: "circle.righthalf.fill", color: Color.red),
+    Menu(title: "方向", icon: "arrow.2.squarepath", color: Color.blue),
+    Menu(title: "给个好评吧，求求你了", icon: "paperplane.fill", color: Color.green)
 ]
 
 struct MenuView: View {
@@ -107,11 +109,11 @@ struct MenuView: View {
                 ForEach(menu) { item in
                     if item.title == "Settings" {
                         Button(action: { self.showSettings.toggle() }) {
-                            MenuRow(image: item.icon, text: item.title)
+                            MenuRow(image: item.icon, text: item.title, color: item.color)
                                 .sheet(isPresented: self.$showSettings) { Settings() }
                         }
                     } else {
-                        MenuRow(image: item.icon, text: item.title)
+                        MenuRow(image: item.icon, text: item.title, color: item.color)
                     }
                 }
                 Spacer()
