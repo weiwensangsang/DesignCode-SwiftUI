@@ -16,14 +16,14 @@ struct TimeList: View {
             if !model.landscape {
                 VStack() {
                     Text(self.coreData.currentDate)
-                        .font(Font.custom("Canterbury", size: 30))
-                        .foregroundColor(Color.purple)
+                        .font(Font.custom(self.coreData.font, size: 30))
+                        .foregroundColor(Color(self.coreData.fontColor))
                         .fontWeight(.bold)
                         .frame(width: 360, height:40, alignment: .bottomTrailing)
                     
                     Text("周" + self.coreData.weekday)
-                        .font(Font.custom("Canterbury", size: 28))
-                        .foregroundColor(Color.purple)
+                        .font(Font.custom(self.coreData.font, size: 28))
+                        .foregroundColor(Color(self.coreData.fontColor))
                         .fontWeight(.heavy)
                         .frame(width: 360, height:50, alignment: .bottomTrailing)
                     
@@ -46,14 +46,14 @@ struct TimeList: View {
                 VStack() {
                     HStack() {
                         Text("周" + self.coreData.weekday)
-                            .font(Font.custom("Canterbury", size: 28))
-                            .foregroundColor(Color.purple)
+                            .font(Font.custom(self.coreData.font, size: 28))
+                            .foregroundColor(Color(self.coreData.fontColor))
                             .fontWeight(.heavy)
                         
                         Spacer()
                         Text(self.coreData.currentDate)
-                            .font(Font.custom("Canterbury", size: 30))
-                            .foregroundColor(Color.purple)
+                            .font(Font.custom(self.coreData.font, size: 30))
+                            .foregroundColor(Color(self.coreData.fontColor))
                             .fontWeight(.bold)
                     }.frame(width: 600)
                     HStack() {
@@ -103,11 +103,11 @@ struct TimeView: View {
     
     var body: some View {
         return VStack() {
-            AnimatableColorText(from: UIColor.systemGray, to: UIColor.systemGray6, pct: (
+            AnimatableColorText(from: self.coreData.fontBackgroundColor, to: self.coreData.fontColor, pct: (
                 self.type == "hour" ? self.coreData.isHourChange :
                     self.coreData.isMinuteChange) ? 1 : 0) {
                         Text(self.time <= 9 ? "0\(self.time)" : "\(self.time)")
-                            .font(Font.custom("Canterbury", size: 250))
+                            .font(Font.custom(self.coreData.font, size: 250))
                             .fontWeight(.heavy)
                         
             }
@@ -115,7 +115,7 @@ struct TimeView: View {
             .padding()
             
         }
-        .background(Color.gray)
+        .background(Color(self.coreData.fontBackgroundColor))
         .cornerRadius(30)
         .frame(width: 360, height: 300)
         .shadow(color: Color.gray, radius: 10)

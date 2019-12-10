@@ -15,6 +15,12 @@ class CoreData: ObservableObject {
     @Published var weekday: String
     @Published var isMinuteChange: Bool
     @Published var isHourChange: Bool
+    @Published var font: String
+    @Published var fontColor: UIColor
+    @Published var fontBackgroundColor: UIColor
+    @Published var light: Int
+    @Published var isLock: Bool
+
     
     var timer = Timer()
     var mTimer = Timer()
@@ -50,6 +56,11 @@ class CoreData: ObservableObject {
         
         isMinuteChange = true
         isHourChange = true
+        font = "Canterbury"
+        fontColor = UIColor.systemGray6
+        fontBackgroundColor = UIColor.systemGray
+        light = 50
+        isLock = false
         let current = getDateComponents()
         hour = current.hour!
         minute = current.minute!
@@ -59,7 +70,7 @@ class CoreData: ObservableObject {
         timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true, block: { _ in
             
             let current = getDateComponents()
-            if (self.minute != current.minute!) {
+            if (self.minute == current.minute!) {
                 withAnimation(.easeInOut(duration: 2)) {
                     self.isMinuteChange.toggle()
                 }
