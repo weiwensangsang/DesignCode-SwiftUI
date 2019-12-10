@@ -10,6 +10,7 @@
 		0EDE07C1239FEA84005B7243 /* AnimatableColorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07C0239FEA84005B7243 /* AnimatableColorText.swift */; };
 		0EDE07C3239FEA8A005B7243 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07C2239FEA8A005B7243 /* CoreData.swift */; };
 		0EDE07C5239FEA91005B7243 /* TimeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07C4239FEA91005B7243 /* TimeList.swift */; };
+		0EDE07C7239FEAF2005B7243 /* Canterbury.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EDE07C6239FEAF2005B7243 /* Canterbury.ttf */; };
 		AB62172722D870540039BC73 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62172622D870540039BC73 /* Home.swift */; };
 		ABB215DC22DB353800424B38 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB215DB22DB353800424B38 /* BlurView.swift */; };
 		ABB215DE22DB713300424B38 /* UpdateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB215DD22DB713300424B38 /* UpdateList.swift */; };
@@ -30,6 +31,7 @@
 		0EDE07C0239FEA84005B7243 /* AnimatableColorText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableColorText.swift; sourceTree = "<group>"; };
 		0EDE07C2239FEA8A005B7243 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		0EDE07C4239FEA91005B7243 /* TimeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeList.swift; sourceTree = "<group>"; };
+		0EDE07C6239FEAF2005B7243 /* Canterbury.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Canterbury.ttf; sourceTree = "<group>"; };
 		AB62172622D870540039BC73 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		ABB215DB22DB353800424B38 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		ABB215DD22DB713300424B38 /* UpdateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateList.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				ABB215E322DC7D0000424B38 /* TabBar.swift */,
 				ABE07CC222D74F5700D209BE /* ContentView.swift */,
 				AB62172622D870540039BC73 /* Home.swift */,
+				0EDE07C6239FEAF2005B7243 /* Canterbury.ttf */,
 				ABB215DD22DB713300424B38 /* UpdateList.swift */,
 				ABB215DF22DB7F4700424B38 /* UpdateDetail.swift */,
 				ABB215E122DC472900424B38 /* UpdateStore.swift */,
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABE07CCB22D74F5900D209BE /* LaunchScreen.storyboard in Resources */,
+				0EDE07C7239FEAF2005B7243 /* Canterbury.ttf in Resources */,
 				ABE07CC822D74F5900D209BE /* Preview Assets.xcassets in Resources */,
 				ABE07CC522D74F5900D209BE /* Assets.xcassets in Resources */,
 			);
