@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Settings: View {
+struct ColorSettings: View {
 
    @State var receive = false
    @State var number = 1
@@ -44,7 +44,7 @@ struct Settings: View {
                Alert(title: Text("Thanks"), message: Text("Email: \(email)"))
             })
          }
-         .navigationBarTitle("Settings")
+         .navigationBarTitle("字体颜色")
       }
    }
 }
@@ -52,7 +52,7 @@ struct Settings: View {
 #if DEBUG
 struct Settings_Previews: PreviewProvider {
    static var previews: some View {
-      Settings()
+      ColorSettings()
    }
 }
 #endif
