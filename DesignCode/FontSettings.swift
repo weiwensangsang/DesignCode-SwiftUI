@@ -8,7 +8,8 @@
 
 import SwiftUI
 
-struct ColorSettings: View {
+struct FontSettings: View {
+    @EnvironmentObject var coreData : CoreData
 
    @State var receive = false
    @State var number = 1
@@ -44,7 +45,7 @@ struct ColorSettings: View {
                Alert(title: Text("Thanks"), message: Text("Email: \(email)"))
             })
          }
-         .navigationBarTitle("字体颜色")
+         .navigationBarTitle("字体设置")
       }
    }
 }
@@ -52,7 +53,7 @@ struct ColorSettings: View {
 #if DEBUG
 struct Settings_Previews: PreviewProvider {
    static var previews: some View {
-      ColorSettings()
+      FontSettings()
    }
 }
 #endif
