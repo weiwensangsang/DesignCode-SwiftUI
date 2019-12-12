@@ -15,6 +15,9 @@ let screen = UIScreen.main.bounds
 struct Home: View {
     @EnvironmentObject var model: Model
     
+    @EnvironmentObject var coreData : CoreData
+
+    
     @State var showMenuButton = true
     @State var show = false
     @State var showProfile = false
@@ -55,6 +58,8 @@ struct Home_Previews: PreviewProvider {
         Home()
             .previewDevice("iPhone 11")
             .environmentObject(Model(isLandscape: false))
+            .environmentObject(CoreData())
+
             //.previewLayout(.fixed(width: 1000, height: 1000)) // iPhone SE landscape size
     }
 }

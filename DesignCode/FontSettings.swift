@@ -10,34 +10,40 @@ import SwiftUI
 
 struct FontSettings: View {
     @EnvironmentObject var coreData : CoreData
-
-   @State var receive = false
-   @State var number = 1
-   @State var selection = 1
-   @State var date = Date()
-   @State var email = ""
-   @State var submit = false
-    var someData = ["a", "b", "c"]
-   var body: some View {
-      NavigationView {
-         Form {
+    
+ 
+    var fonts = ["Canterbury", "Georgia"]
+    
+    var body: some View {
+        let p = Binding<Int>(get: {
+            return self.fonts.firstIndex(of: self.coreData.font)!
+        }, set: {
+            self.coreData.font = self.fonts[$0]
             
-            Picker(selection: $selection, label: Text("Favourite course")) {
-               Text("SwiftUI").tag(1)
-               Text("React").tag(2)
+            // your callback goes here
+            print("setting value \($0)")
+        })
+        return NavigationView {
+            Form {
+                
+                Picker(selection: p,
+                       label: Text("")) {
+                        ForEach(0 ..< fonts.count) {
+                            Text(self.fonts[$0]).tag($0)
+                        }
+                }
+                .pickerStyle(WheelPickerStyle())
+                Text("you picked: \(self.coreData.font)")
+                
             }
-            
-            Text("you picked: \(someData[picked])")
-
-         }
-         .navigationBarTitle("字体设置")
-      }
-   }
+            .navigationBarTitle("字体设置")
+        }
+    }
 }
 
 #if DEBUG
 struct Settings_Previews: PreviewProvider {
-   static var previews: some View {
-      FontSettings().environmentObject(CoreData()) }
+    static var previews: some View {
+        FontSettings().environmentObject(CoreData()) }
 }
 #endif

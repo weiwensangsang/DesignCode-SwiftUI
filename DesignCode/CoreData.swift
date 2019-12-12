@@ -56,7 +56,7 @@ class CoreData: ObservableObject {
         
         isMinuteChange = true
         isHourChange = true
-        font = "Canterbury"
+        font = "Georgia"
         fontColor = UIColor.systemGray6
         fontBackgroundColor = UIColor.systemGray
         light = 50
@@ -101,5 +101,9 @@ class CoreData: ObservableObject {
             }
             
         })
+    }
+    
+    func setFont(newFont: String) {
+        self.font = newFont
     }
 }
