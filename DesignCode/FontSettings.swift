@@ -27,7 +27,7 @@ struct FontSettings: View {
             Form {
                 
                 Picker(selection: p,
-                       label: Text("")) {
+                       label: Text("字体")) {
                         ForEach(0 ..< fonts.count) {
                             Text(self.fonts[$0]).tag($0)
                         }
