@@ -28,7 +28,7 @@ struct Home: View {
             TimeList()
                 .background(Color.black)
                // .padding(.top, 100)
-                .environmentObject(CoreData())
+                .environmentObject(self.coreData)
                 .onTapGesture {
                     self.showMenuButton.toggle()
             } .offset(y: self.model.landscape ? 40 : 80)
@@ -44,6 +44,7 @@ struct Home: View {
             .animation(.spring())
             
             MenuView(show: $show)
+            .environmentObject(self.coreData)
         }
         .background(Color.black)
         .edgesIgnoringSafeArea(.all)
@@ -107,6 +108,8 @@ struct MenuView: View {
     var menu = menuData
     @Binding var show: Bool
     @State var showSettings = false
+    @EnvironmentObject var coreData : CoreData
+
     
     var body: some View {
         return HStack {
@@ -115,7 +118,7 @@ struct MenuView: View {
                     if item.title != "颜色" {
                         Button(action: { self.showSettings.toggle() }) {
                             MenuRow(image: item.icon, text: item.title, color: item.color)
-                                .sheet(isPresented: self.$showSettings) { FontSettings().environmentObject(CoreData()) }
+                                .sheet(isPresented: self.$showSettings) { FontSettings().environmentObject(self.coreData) }
                         }
                     } else {
                         MenuRow(image: item.icon, text: item.title, color: item.color)

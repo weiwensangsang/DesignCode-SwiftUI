@@ -11,7 +11,7 @@
 		0EDE07C3239FEA8A005B7243 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07C2239FEA8A005B7243 /* CoreData.swift */; };
 		0EDE07C5239FEA91005B7243 /* TimeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07C4239FEA91005B7243 /* TimeList.swift */; };
 		0EDE07C7239FEAF2005B7243 /* Canterbury.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EDE07C6239FEAF2005B7243 /* Canterbury.ttf */; };
-		0EDE07CB239FEBCF005B7243 /* FontSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07CA239FEBCF005B7243 /* FontSettings.swift */; };
+		0EDE07CF23AA7E3E005B7243 /* FontSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07CE23AA7E3D005B7243 /* FontSettings.swift */; };
 		AB62172722D870540039BC73 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62172622D870540039BC73 /* Home.swift */; };
 		ABB215DC22DB353800424B38 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB215DB22DB353800424B38 /* BlurView.swift */; };
 		ABB215DE22DB713300424B38 /* UpdateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB215DD22DB713300424B38 /* UpdateList.swift */; };
@@ -31,7 +31,7 @@
 		0EDE07C2239FEA8A005B7243 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		0EDE07C4239FEA91005B7243 /* TimeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeList.swift; sourceTree = "<group>"; };
 		0EDE07C6239FEAF2005B7243 /* Canterbury.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Canterbury.ttf; sourceTree = "<group>"; };
-		0EDE07CA239FEBCF005B7243 /* FontSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSettings.swift; sourceTree = "<group>"; };
+		0EDE07CE23AA7E3D005B7243 /* FontSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSettings.swift; sourceTree = "<group>"; };
 		AB62172622D870540039BC73 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		ABB215DB22DB353800424B38 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		ABB215DD22DB713300424B38 /* UpdateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateList.swift; sourceTree = "<group>"; };
@@ -80,10 +80,10 @@
 			children = (
 				ABE07CBE22D74F5700D209BE /* AppDelegate.swift */,
 				ABE07CC022D74F5700D209BE /* SceneDelegate.swift */,
+				0EDE07CE23AA7E3D005B7243 /* FontSettings.swift */,
 				ABE07CC222D74F5700D209BE /* ContentView.swift */,
 				AB62172622D870540039BC73 /* Home.swift */,
 				0EDE07C6239FEAF2005B7243 /* Canterbury.ttf */,
-				0EDE07CA239FEBCF005B7243 /* FontSettings.swift */,
 				ABB215DD22DB713300424B38 /* UpdateList.swift */,
 				ABB215DF22DB7F4700424B38 /* UpdateDetail.swift */,
 				ABB215E122DC472900424B38 /* UpdateStore.swift */,
@@ -183,10 +183,10 @@
 				ABE07CBF22D74F5700D209BE /* AppDelegate.swift in Sources */,
 				ABB215E222DC472900424B38 /* UpdateStore.swift in Sources */,
 				ABB215DE22DB713300424B38 /* UpdateList.swift in Sources */,
+				0EDE07CF23AA7E3E005B7243 /* FontSettings.swift in Sources */,
 				0EDE07C3239FEA8A005B7243 /* CoreData.swift in Sources */,
 				0EDE07C5239FEA91005B7243 /* TimeList.swift in Sources */,
 				0EDE07C1239FEA84005B7243 /* AnimatableColorText.swift in Sources */,
-				0EDE07CB239FEBCF005B7243 /* FontSettings.swift in Sources */,
 				ABB215E022DB7F4700424B38 /* UpdateDetail.swift in Sources */,
 				ABE07CC122D74F5700D209BE /* SceneDelegate.swift in Sources */,
 				AB62172722D870540039BC73 /* Home.swift in Sources */,
