@@ -19,7 +19,7 @@ struct FontSettings: View {
             return self.fonts.firstIndex(of: self.coreData.font)!
         }, set: {
             self.coreData.font = self.fonts[$0]
-            self.coreData.minute += 1
+            
             // your callback goes here
             print("setting value \($0)")
         })
@@ -33,7 +33,7 @@ struct FontSettings: View {
                         }
                 }
                 .pickerStyle(WheelPickerStyle())
-                Text("you picked: \(self.coreData.minute)")
+                Text("you picked: \(self.coreData.font)")
                 
             }
             .navigationBarTitle("字体设置")

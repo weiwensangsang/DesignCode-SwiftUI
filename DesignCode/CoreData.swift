@@ -15,11 +15,7 @@ class CoreData: ObservableObject {
     @Published var weekday: String
     @Published var isMinuteChange: Bool
     @Published var isHourChange: Bool
-    @Published var font: String{
-        didSet {
-            objectWillChange.send()
-        }
-    }
+    @Published var font: String
     @Published var fontColor: UIColor
     @Published var fontBackgroundColor: UIColor
     @Published var light: Int
@@ -60,7 +56,7 @@ class CoreData: ObservableObject {
         
         isMinuteChange = true
         isHourChange = true
-        font = "Canterbury"
+        font = "Georgia"
         fontColor = UIColor.systemGray6
         fontBackgroundColor = UIColor.systemGray
         light = 50
@@ -71,7 +67,7 @@ class CoreData: ObservableObject {
         weekday = revert(weekday: current.weekday!)
         currentDate = getCurrentDate()
         
-        timer = Timer.scheduledTimer(withTimeInterval: 40, repeats: true, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true, block: { _ in
             
             let current = getDateComponents()
             if (self.minute == current.minute!) {

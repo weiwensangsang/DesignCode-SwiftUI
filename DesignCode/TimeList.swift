@@ -15,21 +15,6 @@ struct TimeList: View {
         Group {
             if !model.landscape {
                 VStack() {
-                    
-                    Button(action: {  self.coreData.minute+=1 }) {
-                        HStack {
-                            Spacer()
-                            
-                            Image(systemName: "list.dash")
-                                .foregroundColor(.primary)
-                        }
-                        .padding(.trailing, 18)
-                        .frame(width: 90, height: 60)
-                        .background(Color("button"))
-                        .cornerRadius(30)
-                        .shadow(color: Color("buttonShadow"), radius: 20, x: 0, y: 20)
-                    }
-
                     Text(self.coreData.currentDate)
                         .font(Font.custom(self.coreData.font, size: 30))
                         .foregroundColor(Color(self.coreData.fontColor))
@@ -98,8 +83,9 @@ struct HomeList_Previews: PreviewProvider {
     static var previews: some View {
         TimeList()
             .environmentObject(CoreData())
-            .environmentObject(Model(isLandscape: false))
-
+            .environmentObject(Model(isLandscape: true))
+         .previewLayout(.fixed(width: 800, height: 500)) // iPhone SE landscape size
+        
         
     }
 }

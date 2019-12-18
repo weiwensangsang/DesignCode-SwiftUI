@@ -145,11 +145,10 @@ struct MenuView: View {
 
 struct MenuButton: View {
     @Binding var show: Bool
-    @EnvironmentObject var coreData : CoreData
-
+    
     var body: some View {
         return ZStack(alignment: .topLeading) {
-            Button(action: { self.show.toggle(); self.coreData.minute+=1 }) {
+            Button(action: { self.show.toggle()  }) {
                 HStack {
                     Spacer()
                     
