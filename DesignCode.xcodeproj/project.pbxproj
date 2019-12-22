@@ -12,6 +12,10 @@
 		0EDE07C5239FEA91005B7243 /* TimeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07C4239FEA91005B7243 /* TimeList.swift */; };
 		0EDE07C7239FEAF2005B7243 /* Canterbury.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EDE07C6239FEAF2005B7243 /* Canterbury.ttf */; };
 		0EDE07CF23AA7E3E005B7243 /* FontSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07CE23AA7E3D005B7243 /* FontSettings.swift */; };
+		0EDE07F823AF57E3005B7243 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07F623AF57E3005B7243 /* Model.xcdatamodeld */; };
+		0EDE07FB23AF5834005B7243 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07FA23AF5834005B7243 /* CoreDataManager.swift */; };
+		0EDE07FE23AF592B005B7243 /* NSManagedObjectContextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07FD23AF592B005B7243 /* NSManagedObjectContextExtensions.swift */; };
+		0EDE080123AF5B6E005B7243 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE080023AF5B6E005B7243 /* ViewModel.swift */; };
 		AB62172722D870540039BC73 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62172622D870540039BC73 /* Home.swift */; };
 		ABB215DC22DB353800424B38 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB215DB22DB353800424B38 /* BlurView.swift */; };
 		ABB215DE22DB713300424B38 /* UpdateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB215DD22DB713300424B38 /* UpdateList.swift */; };
@@ -32,6 +36,10 @@
 		0EDE07C4239FEA91005B7243 /* TimeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeList.swift; sourceTree = "<group>"; };
 		0EDE07C6239FEAF2005B7243 /* Canterbury.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Canterbury.ttf; sourceTree = "<group>"; };
 		0EDE07CE23AA7E3D005B7243 /* FontSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSettings.swift; sourceTree = "<group>"; };
+		0EDE07F723AF57E3005B7243 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		0EDE07FA23AF5834005B7243 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		0EDE07FD23AF592B005B7243 /* NSManagedObjectContextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContextExtensions.swift; sourceTree = "<group>"; };
+		0EDE080023AF5B6E005B7243 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		AB62172622D870540039BC73 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		ABB215DB22DB353800424B38 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		ABB215DD22DB713300424B38 /* UpdateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateList.swift; sourceTree = "<group>"; };
@@ -59,6 +67,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EDE07F923AF581B005B7243 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				0EDE07FA23AF5834005B7243 /* CoreDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		0EDE07FC23AF58F6005B7243 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0EDE07FD23AF592B005B7243 /* NSManagedObjectContextExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0EDE07FF23AF5B45005B7243 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0EDE080023AF5B6E005B7243 /* ViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 		ABE07CB222D74F5700D209BE = {
 			isa = PBXGroup;
 			children = (
@@ -78,7 +110,11 @@
 		ABE07CBD22D74F5700D209BE /* DesignCode */ = {
 			isa = PBXGroup;
 			children = (
+				0EDE07FF23AF5B45005B7243 /* viewModel */,
+				0EDE07FC23AF58F6005B7243 /* Extensions */,
+				0EDE07F923AF581B005B7243 /* Manager */,
 				ABE07CBE22D74F5700D209BE /* AppDelegate.swift */,
+				0EDE07F623AF57E3005B7243 /* Model.xcdatamodeld */,
 				ABE07CC022D74F5700D209BE /* SceneDelegate.swift */,
 				0EDE07CE23AA7E3D005B7243 /* FontSettings.swift */,
 				ABE07CC222D74F5700D209BE /* ContentView.swift */,
@@ -183,12 +219,16 @@
 				ABE07CBF22D74F5700D209BE /* AppDelegate.swift in Sources */,
 				ABB215E222DC472900424B38 /* UpdateStore.swift in Sources */,
 				ABB215DE22DB713300424B38 /* UpdateList.swift in Sources */,
+				0EDE07FB23AF5834005B7243 /* CoreDataManager.swift in Sources */,
+				0EDE07F823AF57E3005B7243 /* Model.xcdatamodeld in Sources */,
 				0EDE07CF23AA7E3E005B7243 /* FontSettings.swift in Sources */,
+				0EDE080123AF5B6E005B7243 /* ViewModel.swift in Sources */,
 				0EDE07C3239FEA8A005B7243 /* CoreData.swift in Sources */,
 				0EDE07C5239FEA91005B7243 /* TimeList.swift in Sources */,
 				0EDE07C1239FEA84005B7243 /* AnimatableColorText.swift in Sources */,
 				ABB215E022DB7F4700424B38 /* UpdateDetail.swift in Sources */,
 				ABE07CC122D74F5700D209BE /* SceneDelegate.swift in Sources */,
+				0EDE07FE23AF592B005B7243 /* NSManagedObjectContextExtensions.swift in Sources */,
 				AB62172722D870540039BC73 /* Home.swift in Sources */,
 				ABE07CC322D74F5700D209BE /* ContentView.swift in Sources */,
 				ABB215DC22DB353800424B38 /* BlurView.swift in Sources */,
@@ -386,6 +426,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0EDE07F623AF57E3005B7243 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0EDE07F723AF57E3005B7243 /* Model.xcdatamodel */,
+			);
+			currentVersion = 0EDE07F723AF57E3005B7243 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ABE07CB322D74F5700D209BE /* Project object */;
 }

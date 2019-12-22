@@ -21,7 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = MyUIHostingController(rootView: Home().environmentObject(Model(isLandscape: windowScene.interfaceOrientation.isLandscape)).environmentObject(CoreData()))
+            //window.rootViewController = MyUIHostingController(rootView: Home().environmentObject(Model(isLandscape: windowScene.interfaceOrientation.isLandscape)).environmentObject(CoreData()))
+            
+             window.rootViewController = MyUIHostingController(rootView: ContentView())
             
             self.window = window
             window.makeKeyAndVisible()
