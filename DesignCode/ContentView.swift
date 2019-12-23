@@ -79,7 +79,7 @@ struct ContentView: View {
         VStack {
         List{
             ForEach(self.vm.orders, id: \.name) { order in
-                Text(order.name)
+                Text(self.vm.settings.font!)
             }
         }
         
@@ -89,7 +89,7 @@ struct ContentView: View {
 
             let name = names.randomElement()!
             let type = types.randomElement()!
-            self.vm.save(name: name, type: type)
+            self.vm.update(newfont: name)
             // more code to come
         }
     }

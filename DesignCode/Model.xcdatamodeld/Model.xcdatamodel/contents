@@ -4,7 +4,11 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Settings" representedClassName="Settings" syncable="YES" codeGenerationType="class">
+        <attribute name="font" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Order" positionX="-9" positionY="36" width="128" height="73"/>
+        <element name="Settings" positionX="0" positionY="63" width="128" height="58"/>
     </elements>
 </model>
