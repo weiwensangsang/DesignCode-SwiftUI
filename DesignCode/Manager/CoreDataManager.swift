@@ -68,6 +68,20 @@ class CoreDataManager {
         //return orders
     }
     
+    func saveSettings(s: Settings){
+        let ss = Settings(context: self.moc)
+        ss.font = s.font
+        //var orders = [Order]()
+        // let orderRequest: NSFetchRequest<Order> = Order.fetchRequest()
+        
+        do {
+            try self.moc.save()
+        } catch let error as NSError {
+            print(error)
+        }
+        //return orders
+    }
+    
     func update(s: Settings){
         var settings = Settings(context: self.moc)
         let settingsRequest: NSFetchRequest<Settings> = NSFetchRequest<Settings>(entityName: "Settings")

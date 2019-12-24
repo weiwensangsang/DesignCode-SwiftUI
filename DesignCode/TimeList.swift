@@ -5,7 +5,8 @@ import SwiftUI
 
 struct TimeList: View {
     @EnvironmentObject var model: Model
-    
+
+    @EnvironmentObject var vm : ViewModel
     
     @EnvironmentObject var coreData : CoreData
     @State var showContent = false
@@ -59,6 +60,7 @@ struct TimeList: View {
                     HStack() {
                         GeometryReader { geometry in
                             TimeView(time : self.coreData.hour, type: "hour")
+                                .environmentObject(self.vm)
                         }
                         .frame(width: 360, height: 300)
                         
@@ -66,6 +68,7 @@ struct TimeList: View {
                         
                         GeometryReader { geometry in
                             TimeView(time : self.coreData.minute, type: "minute")
+                            .environmentObject(self.vm)
                         }
                         .frame(width: 360, height: 300)
                     }
@@ -92,7 +95,8 @@ struct HomeList_Previews: PreviewProvider {
 #endif
 
 struct TimeView: View {
-    
+    @EnvironmentObject var vm : ViewModel
+
     @EnvironmentObject var coreData : CoreData
     var time = 0
     var type = ""
@@ -107,7 +111,7 @@ struct TimeView: View {
                 self.type == "hour" ? self.coreData.isHourChange :
                     self.coreData.isMinuteChange) ? 1 : 0) {
                         Text(self.time <= 9 ? "0\(self.time)" : "\(self.time)")
-                            .font(Font.custom(self.coreData.font, size: 250))
+                            .font(Font.custom(self.vm.settings.font!, size: 250))
                             .fontWeight(.heavy)
                         
             }

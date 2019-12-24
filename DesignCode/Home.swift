@@ -17,6 +17,8 @@ struct Home: View {
     
     @EnvironmentObject var coreData : CoreData
 
+    @EnvironmentObject var vm : ViewModel
+
     
     @State var showMenuButton = true
     @State var show = false
@@ -29,6 +31,7 @@ struct Home: View {
                 .background(Color.black)
                // .padding(.top, 100)
                 .environmentObject(self.coreData)
+                .environmentObject(self.vm)
                 .onTapGesture {
                     self.showMenuButton.toggle()
             } .offset(y: self.model.landscape ? 40 : 80)
@@ -45,6 +48,8 @@ struct Home: View {
             
             MenuView(show: $show)
             .environmentObject(self.coreData)
+            .environmentObject(self.vm)
+
         }
         .background(Color.black)
         .edgesIgnoringSafeArea(.all)
@@ -60,7 +65,7 @@ struct Home_Previews: PreviewProvider {
             .previewDevice("iPhone 11")
             .environmentObject(Model(isLandscape: false))
             .environmentObject(CoreData())
-
+            .environmentObject(ViewModel())
             //.previewLayout(.fixed(width: 1000, height: 1000)) // iPhone SE landscape size
     }
 }
@@ -109,6 +114,7 @@ struct MenuView: View {
     @Binding var show: Bool
     @State var showSettings = false
     @EnvironmentObject var coreData : CoreData
+    @EnvironmentObject var vm : ViewModel
 
     
     var body: some View {
@@ -118,7 +124,7 @@ struct MenuView: View {
                     if item.title != "颜色" {
                         Button(action: { self.showSettings.toggle() }) {
                             MenuRow(image: item.icon, text: item.title, color: item.color)
-                                .sheet(isPresented: self.$showSettings) { FontSettings().environmentObject(self.coreData) }
+                                .sheet(isPresented: self.$showSettings) { FontSettings().environmentObject(self.coreData).environmentObject(self.vm) }
                         }
                     } else {
                         MenuRow(image: item.icon, text: item.title, color: item.color)

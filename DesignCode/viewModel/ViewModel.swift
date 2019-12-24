@@ -37,6 +37,12 @@ class ViewModel : ObservableObject {
         fetchSettings()
 
     }
+    
+    func save(){
+        CoreDataManager.shared.saveSettings(s: self.settings)
+        fetchSettings()
+
+    }
 }
 
 class itemViewModel {
