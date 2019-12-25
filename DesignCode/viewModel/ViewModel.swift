@@ -13,7 +13,6 @@ class ViewModel : ObservableObject {
     @Published var settings : Settings!
 
     init() {
-        fetchAllOrder()
         fetchSettings()
     }
     

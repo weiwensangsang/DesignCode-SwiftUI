@@ -24,7 +24,7 @@ class CoreDataManager {
                 // let orderRequest: NSFetchRequest<Order> = Order.fetchRequest()
                 
                 settings.font = "Canterbury"
-                    try self.moc.save()
+                try self.moc.save()
             }
         } catch let error as NSError {
             print(error)
@@ -46,7 +46,18 @@ class CoreDataManager {
         var settings = Settings(context: self.moc)
         let settingsRequest: NSFetchRequest<Settings> = NSFetchRequest<Settings>(entityName: "Settings")
         do {
-            settings = try self.moc.fetch(settingsRequest)[0]
+            var short = try self.moc.fetch(settingsRequest)
+            if (short.count == 0) {
+                let s = Settings(context: self.moc)
+                //var orders = [Order]()
+                // let orderRequest: NSFetchRequest<Order> = Order.fetchRequest()
+                
+                s.font = "Canterbury"
+                try self.moc.save()
+                short = try self.moc.fetch(settingsRequest)
+            }
+            settings = short[0]
+            
         } catch let error as NSError {
             print(error)
         }
@@ -89,10 +100,10 @@ class CoreDataManager {
             settings = try self.moc.fetch(settingsRequest)[0]
             settings.font = s.font
             try self.moc.save()
-
+            
         } catch let error as NSError {
             print(error)
         }
-    
+        
     }
 }
