@@ -16,10 +16,11 @@ struct FontSettings: View {
     
     var body: some View {
         let p = Binding<Int>(get: {
-            return self.fonts.firstIndex(of: self.vm.settings.font!)!
+            
+            return self.fonts.firstIndex(of: self.vm.settings.font ?? self.changeValue(newValue: "Canterbury"))!
+
         }, set: {
-            self.vm.settings.font = self.fonts[$0]
-            self.vm.update(newfont: self.fonts[$0])
+            self.changeValue(newValue: self.fonts[$0])
         })
         return NavigationView {
             Form {
@@ -34,6 +35,12 @@ struct FontSettings: View {
             }
             .navigationBarTitle("字体设置")
         }
+    }
+    
+    func changeValue(newValue: String) -> String{
+        self.vm.settings.font = newValue
+        self.vm.update(newfont: newValue)
+        return newValue
     }
 }
 

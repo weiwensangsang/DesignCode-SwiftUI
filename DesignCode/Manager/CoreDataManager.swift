@@ -42,11 +42,12 @@ class CoreDataManager {
     }
     
     func update(newfont: String){
-        var settings = Settings(context: self.moc)
+        var short = Settings(context: self.moc)
         let settingsRequest: NSFetchRequest<Settings> = NSFetchRequest<Settings>(entityName: "Settings")
         do {
-            settings = try self.moc.fetch(settingsRequest)[0]
-            settings.font = newfont
+            short = try self.moc.fetch(settingsRequest)[0]
+            print(short.font)
+            short.font = newfont
             try self.moc.save()
             
         } catch let error as NSError {
