@@ -55,6 +55,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E33467523D49E4C008DAB01 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				0EDE07C4239FEA91005B7243 /* TimeList.swift */,
+				AB62172622D870540039BC73 /* Home.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		0E33467623D49E90008DAB01 /* database */ = {
+			isa = PBXGroup;
+			children = (
+				0EDE07F623AF57E3005B7243 /* Model.xcdatamodeld */,
+			);
+			path = database;
+			sourceTree = "<group>";
+		};
+		0E33467723D49EB3008DAB01 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				0EDE07C6239FEAF2005B7243 /* Canterbury.ttf */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		0E33467823D49EEC008DAB01 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				ABE07CBE22D74F5700D209BE /* AppDelegate.swift */,
+				ABE07CC022D74F5700D209BE /* SceneDelegate.swift */,
+				0EDE07C0239FEA84005B7243 /* AnimatableColorText.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		0E33467923D49F10008DAB01 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				0EDE07CE23AA7E3D005B7243 /* FontSettings.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
 		0EDE07F923AF581B005B7243 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +117,7 @@
 		0EDE07FF23AF5B45005B7243 /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0EDE07C2239FEA8A005B7243 /* CoreData.swift */,
 				0EDE080023AF5B6E005B7243 /* ViewModel.swift */,
 			);
 			path = viewModel;
@@ -101,17 +145,13 @@
 				0EDE07FF23AF5B45005B7243 /* viewModel */,
 				0EDE07FC23AF58F6005B7243 /* Extensions */,
 				0EDE07F923AF581B005B7243 /* Manager */,
-				ABE07CBE22D74F5700D209BE /* AppDelegate.swift */,
-				0EDE07F623AF57E3005B7243 /* Model.xcdatamodeld */,
-				ABE07CC022D74F5700D209BE /* SceneDelegate.swift */,
-				0EDE07CE23AA7E3D005B7243 /* FontSettings.swift */,
-				AB62172622D870540039BC73 /* Home.swift */,
-				0EDE07C6239FEAF2005B7243 /* Canterbury.ttf */,
-				0EDE07C0239FEA84005B7243 /* AnimatableColorText.swift */,
-				0EDE07C2239FEA8A005B7243 /* CoreData.swift */,
-				0EDE07C4239FEA91005B7243 /* TimeList.swift */,
-				ABE07CC422D74F5900D209BE /* Assets.xcassets */,
+				0E33467623D49E90008DAB01 /* database */,
+				0E33467823D49EEC008DAB01 /* Tools */,
+				0E33467923D49F10008DAB01 /* settings */,
+				0E33467523D49E4C008DAB01 /* home */,
 				ABE07CC922D74F5900D209BE /* LaunchScreen.storyboard */,
+				ABE07CC422D74F5900D209BE /* Assets.xcassets */,
+				0E33467723D49EB3008DAB01 /* resource */,
 				ABE07CCC22D74F5900D209BE /* Info.plist */,
 				ABE07CC622D74F5900D209BE /* Preview Content */,
 			);
