@@ -16,7 +16,7 @@ struct FontSettings: View {
     
     var body: some View {
         let p = Binding<Int>(get: {
-            return self.fonts.firstIndex(of: self.vm.settings.font ?? "Canterbury")!
+            return self.fonts.firstIndex(of: self.vm.settings.font!)!
         }, set: {
             self.vm.settings.font = self.fonts[$0]
             self.vm.update(newfont: self.fonts[$0])
@@ -31,8 +31,6 @@ struct FontSettings: View {
                         }
                 }
                 .pickerStyle(WheelPickerStyle())
-                Text("you picked: \(self.coreData.font)")
-                
             }
             .navigationBarTitle("字体设置")
         }

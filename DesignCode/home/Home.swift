@@ -16,11 +16,13 @@ struct Home: View {
     @EnvironmentObject var model: Model
     @EnvironmentObject var coreData : CoreData
     @EnvironmentObject var vm : ViewModel
-
+    
     
     @State var showMenuButton = true
     @State var show = false
     @State var showProfile = false
+    @State var offset: CGSize = .zero
+
     
     var body: some View {
         
@@ -44,9 +46,22 @@ struct Home: View {
             .animation(.spring())
             
             MenuView(show: $show)
-            .environmentObject(self.coreData)
-            .environmentObject(self.vm)
-
+                .offset(x: offset.width, y: 0)
+                .environmentObject(self.coreData)
+                .environmentObject(self.vm)
+                .gesture(DragGesture()
+                // When drag location is changed we recalculate offset for the rectangle
+                .onChanged { value in
+                    self.offset = value.translation
+                }
+                // When gesture ended we return the rectangle to the initial position
+                .onEnded { _ in
+                    if abs(self.offset.width) > 60 {
+                        self.show.toggle()
+                    }
+                    self.offset = .zero
+                })
+            
         }
         .background(Color.black)
         .edgesIgnoringSafeArea(.all)
@@ -70,7 +85,7 @@ struct MenuRow: View {
     var image = "creditcard"
     var text = "My Account"
     var color = Color.red
-
+    
     var body: some View {
         return HStack {
             Image(systemName: image)
@@ -105,19 +120,15 @@ struct MenuView: View {
     @State var showSettings = false
     @EnvironmentObject var coreData : CoreData
     @EnvironmentObject var vm : ViewModel
-
+    
     
     var body: some View {
         return HStack {
             VStack(alignment: .leading) {
                 ForEach(menu) { item in
-                    if item.title != "颜色" {
-                        Button(action: { self.showSettings.toggle() }) {
-                            MenuRow(image: item.icon, text: item.title, color: item.color)
-                                .sheet(isPresented: self.$showSettings) { FontSettings().environmentObject(self.coreData).environmentObject(self.vm) }
-                        }
-                    } else {
+                    Button(action: { self.showSettings.toggle() }) {
                         MenuRow(image: item.icon, text: item.title, color: item.color)
+                            .sheet(isPresented: self.$showSettings) { FontSettings().environmentObject(self.coreData).environmentObject(self.vm) }
                     }
                 }
                 Spacer()
