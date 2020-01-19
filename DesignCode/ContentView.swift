@@ -20,7 +20,7 @@ struct ContentView: View {
         self.vm = ViewModel()
     }
     
-  /* var body: some View {
+   var body: some View {
       ZStack {
          BlurView(style: .systemMaterial)
 
@@ -74,26 +74,7 @@ struct ContentView: View {
                   }
             )
       }
-   }*/
-    var body: some View {
-        VStack {
-        List{
-            ForEach(self.vm.orders, id: \.name) { order in
-                Text(self.vm.settings.font!)
-            }
-        }
-        
-        Button("Add") {
-            let names = ["Ginny", "Harry", "Hermione", "Luna", "Ron"]
-            let types = ["Granger", "Lovegood", "Potter", "Weasley"]
-
-            let name = names.randomElement()!
-            let type = types.randomElement()!
-            self.vm.update(newfont: name)
-            // more code to come
-        }
-    }
-    }
+   }
 }
 
 #if DEBUG

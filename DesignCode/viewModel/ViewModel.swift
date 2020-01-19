@@ -9,7 +9,6 @@
 import Foundation
 
 class ViewModel : ObservableObject {
-    @Published var orders = [itemViewModel]()
     @Published var settings : Settings!
 
     init() {
@@ -22,17 +21,7 @@ class ViewModel : ObservableObject {
     
     func update(newfont: String){
         CoreDataManager.shared.update(newfont: newfont)
-        fetchSettings()
-
     }
     
 }
 
-class itemViewModel {
-    var name = ""
-    var type = ""
-    
-    init(settings: Settings) {
-        self.name = settings.font!
-    }
-}
