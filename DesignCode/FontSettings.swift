@@ -20,10 +20,7 @@ struct FontSettings: View {
             return self.fonts.firstIndex(of: self.vm.settings.font ?? "Canterbury")!
         }, set: {
             self.vm.settings.font = self.fonts[$0]
-            print(self.fonts[$0])
             self.vm.update(newfont: self.fonts[$0])
-            // your callback goes here
-            print("setting value \(self.vm.settings.font)")
         })
         return NavigationView {
             Form {

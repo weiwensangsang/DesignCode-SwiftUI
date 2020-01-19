@@ -20,9 +20,6 @@ class CoreDataManager {
         do {
             if(try self.moc.fetch(settingsRequest).count == 0 ) {
                 let settings = Settings(context: self.moc)
-                //var orders = [Order]()
-                // let orderRequest: NSFetchRequest<Order> = Order.fetchRequest()
-                
                 settings.font = "Canterbury"
                 try self.moc.save()
             }
@@ -31,13 +28,11 @@ class CoreDataManager {
         }
     }
     
-
-    
     func getSettings() -> Settings {
         var settings = Settings(context: self.moc)
         let settingsRequest: NSFetchRequest<Settings> = NSFetchRequest<Settings>(entityName: "Settings")
         do {
-            var short = try self.moc.fetch(settingsRequest)
+            let short = try self.moc.fetch(settingsRequest)
             settings = short[0]
             
         } catch let error as NSError {
@@ -45,35 +40,6 @@ class CoreDataManager {
         }
         return settings
     }
-    
-    func save(name: String, type : String){
-        let order = Order(context: self.moc)
-        order.name = name
-        order.type = type
-        //var orders = [Order]()
-        // let orderRequest: NSFetchRequest<Order> = Order.fetchRequest()
-        
-        do {
-            try self.moc.save()
-        } catch let error as NSError {
-            print(error)
-        }
-        //return orders
-    }
-    
-//    func saveSettings(s: Settings){
-//        let ss = Settings(context: self.moc)
-//        ss.font = s.font
-//        //var orders = [Order]()
-//        // let orderRequest: NSFetchRequest<Order> = Order.fetchRequest()
-//        
-//        do {
-//            try self.moc.save()
-//        } catch let error as NSError {
-//            print(error)
-//        }
-//        //return orders
-//    }
     
     func update(newfont: String){
         var settings = Settings(context: self.moc)

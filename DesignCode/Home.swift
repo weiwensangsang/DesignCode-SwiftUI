@@ -29,7 +29,6 @@ struct Home: View {
         ZStack(alignment: .top) {
             TimeList()
                 .background(Color.black)
-               // .padding(.top, 100)
                 .environmentObject(self.coreData)
                 .environmentObject(self.vm)
                 .onTapGesture {
@@ -53,8 +52,6 @@ struct Home: View {
         }
         .background(Color.black)
         .edgesIgnoringSafeArea(.all)
-        
-        
     }
 }
 
@@ -66,7 +63,6 @@ struct Home_Previews: PreviewProvider {
             .environmentObject(Model(isLandscape: false))
             .environmentObject(CoreData())
             .environmentObject(ViewModel())
-            //.previewLayout(.fixed(width: 1000, height: 1000)) // iPhone SE landscape size
     }
 }
 #endif
@@ -102,10 +98,6 @@ struct Menu: Identifiable {
 
 let menuData = [
     Menu(title: "字体", icon: "a.square.fill", color: Color.black),
-//    Menu(title: "亮度", icon: "bolt.fill", color: Color.yellow),
-//    Menu(title: "颜色", icon: "circle.righthalf.fill", color: Color.red),
-//    Menu(title: "方向", icon: "arrow.2.squarepath", color: Color.blue),
-//    Menu(title: "给个好评吧，求求你了", icon: "paperplane.fill", color: Color.green)
 ]
 
 struct MenuView: View {
