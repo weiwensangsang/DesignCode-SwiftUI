@@ -102,10 +102,10 @@ struct Menu: Identifiable {
 
 let menuData = [
     Menu(title: "字体", icon: "a.square.fill", color: Color.black),
-    Menu(title: "亮度", icon: "bolt.fill", color: Color.yellow),
-    Menu(title: "颜色", icon: "circle.righthalf.fill", color: Color.red),
-    Menu(title: "方向", icon: "arrow.2.squarepath", color: Color.blue),
-    Menu(title: "给个好评吧，求求你了", icon: "paperplane.fill", color: Color.green)
+//    Menu(title: "亮度", icon: "bolt.fill", color: Color.yellow),
+//    Menu(title: "颜色", icon: "circle.righthalf.fill", color: Color.red),
+//    Menu(title: "方向", icon: "arrow.2.squarepath", color: Color.blue),
+//    Menu(title: "给个好评吧，求求你了", icon: "paperplane.fill", color: Color.green)
 ]
 
 struct MenuView: View {

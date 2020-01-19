@@ -111,7 +111,7 @@ struct TimeView: View {
                 self.type == "hour" ? self.coreData.isHourChange :
                     self.coreData.isMinuteChange) ? 1 : 0) {
                         Text(self.time <= 9 ? "0\(self.time)" : "\(self.time)")
-                            .font(Font.custom(self.vm.settings.font!, size: 250))
+                            .font(Font.custom(self.vm.settings.font ?? "Canterbury", size: 250))
                             .fontWeight(.heavy)
                         
             }

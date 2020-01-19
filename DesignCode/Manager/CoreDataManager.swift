@@ -31,31 +31,13 @@ class CoreDataManager {
         }
     }
     
-    func getAll() -> [Settings] {
-        var settings = [Settings]()
-        let orderRequest: NSFetchRequest<Settings> = NSFetchRequest<Settings>(entityName: "Settings")
-        do {
-            settings = try self.moc.fetch(orderRequest)
-        } catch let error as NSError {
-            print(error)
-        }
-        return settings
-    }
+
     
     func getSettings() -> Settings {
         var settings = Settings(context: self.moc)
         let settingsRequest: NSFetchRequest<Settings> = NSFetchRequest<Settings>(entityName: "Settings")
         do {
             var short = try self.moc.fetch(settingsRequest)
-            if (short.count == 0) {
-                let s = Settings(context: self.moc)
-                //var orders = [Order]()
-                // let orderRequest: NSFetchRequest<Order> = Order.fetchRequest()
-                
-                s.font = "Canterbury"
-                try self.moc.save()
-                short = try self.moc.fetch(settingsRequest)
-            }
             settings = short[0]
             
         } catch let error as NSError {
@@ -79,26 +61,26 @@ class CoreDataManager {
         //return orders
     }
     
-    func saveSettings(s: Settings){
-        let ss = Settings(context: self.moc)
-        ss.font = s.font
-        //var orders = [Order]()
-        // let orderRequest: NSFetchRequest<Order> = Order.fetchRequest()
-        
-        do {
-            try self.moc.save()
-        } catch let error as NSError {
-            print(error)
-        }
-        //return orders
-    }
+//    func saveSettings(s: Settings){
+//        let ss = Settings(context: self.moc)
+//        ss.font = s.font
+//        //var orders = [Order]()
+//        // let orderRequest: NSFetchRequest<Order> = Order.fetchRequest()
+//        
+//        do {
+//            try self.moc.save()
+//        } catch let error as NSError {
+//            print(error)
+//        }
+//        //return orders
+//    }
     
-    func update(s: Settings){
+    func update(newfont: String){
         var settings = Settings(context: self.moc)
         let settingsRequest: NSFetchRequest<Settings> = NSFetchRequest<Settings>(entityName: "Settings")
         do {
             settings = try self.moc.fetch(settingsRequest)[0]
-            settings.font = s.font
+            settings.font = newfont
             try self.moc.save()
             
         } catch let error as NSError {
