@@ -16,32 +16,16 @@ class ViewModel : ObservableObject {
         fetchSettings()
     }
     
-    func fetchAllOrder () {
-        self.orders = CoreDataManager.shared.getAll().map(itemViewModel.init)
-    }
-    
     func fetchSettings () {
         self.settings = CoreDataManager.shared.getSettings()
     }
     
-    func save(name: String, type : String){
-        CoreDataManager.shared.save(name: name, type: type)
-        self.orders = CoreDataManager.shared.getAll().map(itemViewModel.init)
-
-    }
-    
     func update(newfont: String){
-        self.settings.font = newfont
-        CoreDataManager.shared.update(s: self.settings)
+        CoreDataManager.shared.update(newfont: newfont)
         fetchSettings()
 
     }
     
-    func save(){
-        CoreDataManager.shared.saveSettings(s: self.settings)
-        fetchSettings()
-
-    }
 }
 
 class itemViewModel {
