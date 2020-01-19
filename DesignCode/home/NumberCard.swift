@@ -3,9 +3,9 @@
 
 import SwiftUI
 
-struct TimeList: View {
+struct NumberCard: View {
     @EnvironmentObject var model: Model
-
+    
     @EnvironmentObject var vm : ViewModel
     
     @EnvironmentObject var coreData : CoreData
@@ -29,19 +29,16 @@ struct TimeList: View {
                         .frame(width: 360, height:50, alignment: .bottomTrailing)
                     
                     GeometryReader { geometry in
-                        TimeView(time : self.coreData.hour, type: "hour")
+                        NumberView(time : self.coreData.hour, type: "hour")
                     }
                     .frame(width: 360, height: 300)
                     
-                    
-                    
                     GeometryReader { geometry in
-                        TimeView(time : self.coreData.minute, type: "minute")
+                        NumberView(time : self.coreData.minute, type: "minute")
                     }
                     .frame(width: 360, height: 300)
                     
                 }
-                
                 
             } else {
                 VStack() {
@@ -59,45 +56,40 @@ struct TimeList: View {
                     }.frame(width: 600)
                     HStack() {
                         GeometryReader { geometry in
-                            TimeView(time : self.coreData.hour, type: "hour")
+                            NumberView(time : self.coreData.hour, type: "hour")
                                 .environmentObject(self.vm)
                         }
                         .frame(width: 360, height: 300)
                         
-                        
-                        
                         GeometryReader { geometry in
-                            TimeView(time : self.coreData.minute, type: "minute")
-                            .environmentObject(self.vm)
+                            NumberView(time : self.coreData.minute, type: "minute")
+                                .environmentObject(self.vm)
                         }
                         .frame(width: 360, height: 300)
                     }
                 }
-                
             }
         }
-        
-        
     }
 }
 
 #if DEBUG
 struct HomeList_Previews: PreviewProvider {
     static var previews: some View {
-        TimeList()
+        NumberCard()
             .environmentObject(CoreData())
             .environmentObject(Model(isLandscape: true))
-         .previewLayout(.fixed(width: 800, height: 500)) // iPhone SE landscape size
+            .previewLayout(.fixed(width: 800, height: 500)) // iPhone SE landscape size
         
         
     }
 }
 #endif
 
-struct TimeView: View {
+struct NumberView: View {
     @EnvironmentObject var vm : ViewModel
-
     @EnvironmentObject var coreData : CoreData
+    
     var time = 0
     var type = ""
     var image = "Illustration1"

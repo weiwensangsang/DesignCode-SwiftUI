@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0EDE07C1239FEA84005B7243 /* AnimatableColorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07C0239FEA84005B7243 /* AnimatableColorText.swift */; };
 		0EDE07C3239FEA8A005B7243 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07C2239FEA8A005B7243 /* CoreData.swift */; };
-		0EDE07C5239FEA91005B7243 /* TimeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07C4239FEA91005B7243 /* TimeList.swift */; };
+		0EDE07C5239FEA91005B7243 /* NumberCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07C4239FEA91005B7243 /* NumberCard.swift */; };
 		0EDE07C7239FEAF2005B7243 /* Canterbury.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EDE07C6239FEAF2005B7243 /* Canterbury.ttf */; };
 		0EDE07CF23AA7E3E005B7243 /* FontSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07CE23AA7E3D005B7243 /* FontSettings.swift */; };
 		0EDE07F823AF57E3005B7243 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE07F623AF57E3005B7243 /* Model.xcdatamodeld */; };
@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		0EDE07C0239FEA84005B7243 /* AnimatableColorText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableColorText.swift; sourceTree = "<group>"; };
 		0EDE07C2239FEA8A005B7243 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
-		0EDE07C4239FEA91005B7243 /* TimeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeList.swift; sourceTree = "<group>"; };
+		0EDE07C4239FEA91005B7243 /* NumberCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCard.swift; sourceTree = "<group>"; };
 		0EDE07C6239FEAF2005B7243 /* Canterbury.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Canterbury.ttf; sourceTree = "<group>"; };
 		0EDE07CE23AA7E3D005B7243 /* FontSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSettings.swift; sourceTree = "<group>"; };
 		0EDE07F723AF57E3005B7243 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 		0E33467523D49E4C008DAB01 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				0EDE07C4239FEA91005B7243 /* TimeList.swift */,
+				0EDE07C4239FEA91005B7243 /* NumberCard.swift */,
 				AB62172622D870540039BC73 /* Home.swift */,
 			);
 			path = home;
@@ -244,7 +244,7 @@
 				0EDE07CF23AA7E3E005B7243 /* FontSettings.swift in Sources */,
 				0EDE080123AF5B6E005B7243 /* ViewModel.swift in Sources */,
 				0EDE07C3239FEA8A005B7243 /* CoreData.swift in Sources */,
-				0EDE07C5239FEA91005B7243 /* TimeList.swift in Sources */,
+				0EDE07C5239FEA91005B7243 /* NumberCard.swift in Sources */,
 				0EDE07C1239FEA84005B7243 /* AnimatableColorText.swift in Sources */,
 				ABE07CC122D74F5700D209BE /* SceneDelegate.swift in Sources */,
 				0EDE07FE23AF592B005B7243 /* NSManagedObjectContextExtensions.swift in Sources */,

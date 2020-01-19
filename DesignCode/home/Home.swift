@@ -14,9 +14,7 @@ let screen = UIScreen.main.bounds
 
 struct Home: View {
     @EnvironmentObject var model: Model
-    
     @EnvironmentObject var coreData : CoreData
-
     @EnvironmentObject var vm : ViewModel
 
     
@@ -27,7 +25,7 @@ struct Home: View {
     var body: some View {
         
         ZStack(alignment: .top) {
-            TimeList()
+            NumberCard()
                 .background(Color.black)
                 .environmentObject(self.coreData)
                 .environmentObject(self.vm)

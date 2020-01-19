@@ -21,11 +21,9 @@ class CoreData: ObservableObject {
     @Published var light: Int
     @Published var isLock: Bool
 
-    
     var timer = Timer()
     var mTimer = Timer()
     var hTimer = Timer()
-    
     
     init() {
         func getDateComponents() -> DateComponents {
@@ -34,7 +32,7 @@ class CoreData: ObservableObject {
         }
         
         func getCurrentDate() -> String {
-            let dateFormatter = DateFormatter() // 创建一个日期格式器
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy年MM月dd日"
             return dateFormatter.string(from: Date())
         }
@@ -52,7 +50,6 @@ class CoreData: ObservableObject {
                 return "？"
             }
         }
-        
         
         isMinuteChange = true
         isHourChange = true

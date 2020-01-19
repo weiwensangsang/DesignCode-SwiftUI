@@ -11,8 +11,7 @@ import SwiftUI
 struct FontSettings: View {
     @EnvironmentObject var coreData : CoreData
     @EnvironmentObject var vm : ViewModel
-
- 
+    
     var fonts = ["Canterbury", "Georgia"]
     
     var body: some View {
