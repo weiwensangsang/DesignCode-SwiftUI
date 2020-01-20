@@ -67,7 +67,7 @@ class CoreData: ObservableObject {
         timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true, block: { _ in
             
             let current = getDateComponents()
-            if (self.minute == current.minute!) {
+            if (self.minute != current.minute!) {
                 withAnimation(.easeInOut(duration: 2)) {
                     self.isMinuteChange.toggle()
                 }
